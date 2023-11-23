@@ -1,11 +1,8 @@
-import { SessionProvider } from 'next-auth/react';
+import express from 'express';
+import userRoute from '../src/routes/user.route';
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <SessionProvider>
-      <Component {...pageProps} />
-    </SessionProvider>
-  );
-}
+const app = express();
 
-export default MyApp;
+app.use('/users', userRoute);
+
+export default app;
